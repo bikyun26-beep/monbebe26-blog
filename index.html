@@ -14,6 +14,69 @@
       overflow-x: hidden;
       transition: background 0.4s ease, color 0.4s ease;
     }
+    .stats {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #f2f2f2;
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    /* Komentar */
+    .comments {
+      margin-top: 2rem;
+    }
+    .comments h2 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.8rem;
+      font-size: 1.4rem;
+      color: #5a4634;
+    }
+    .comment-form {
+      margin-bottom: 1.5rem;
+    }
+    .comment-form input, .comment-form textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-family: 'Inter', sans-serif;
+    }
+    .comment-form button {
+      background: #5a4634;
+      color: white;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .comment-form button:hover {
+      background: #7a5c3f;
+    }
+    .comment-list {
+      list-style: none;
+      padding: 0;
+    }
+    .comment-list li {
+      padding: 0.8rem;
+      background: #f6f2ec;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+    }
 
     /* Toggle Button */
     .toggle-btn {
@@ -243,6 +306,26 @@ Bagi Monbebe setia, mari kita rayakan dan dukung bersama setiap langkah MONSTA X
     </article>
   </main>
 
+  <!-- Mini Stats -->
+  <div class="stats">
+    <div class="stat-item">👀 <span id="views">0</span></div>
+    <div class="stat-item">❤️ <span id="likes">0</span> 
+      <button onclick="addLike()">👍</button>
+    </div>
+  </div>
+
+  <!-- Kolom Komentar -->
+  <div id="komentar" style="max-width:600px; margin:30px auto;">
+    <h3 style="font-family:Arial, sans-serif; font-size:16px; margin-bottom:10px;">💬 Komentar</h3>
+    <script src="https://utteranc.es/client.js"
+            repo="bikyun26-beep/monbebe26-blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
   <!-- Footer -->
   <footer>
     &copy; 2025 Monbebe 21+ Blog - Untuk Monsta X Monbebe 💕
@@ -254,5 +337,14 @@ Bagi Monbebe setia, mari kita rayakan dan dukung bersama setiap langkah MONSTA X
     }
   </script>
 
+<script>
+  let likes = 0;
+  function addLike() {
+    likes++;
+    document.getElementById("likes").textContent = likes;
+  }
+</script>
+
+<script src="darkmode.js"></script>
 </body>
 </html>

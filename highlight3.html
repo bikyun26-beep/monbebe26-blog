@@ -15,6 +15,27 @@
       transition: background-color 0.3s, color 0.3s;
     }
 
+    .stats {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+    .stat-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: #f2f2f2;
+      padding: 5px 10px;
+      border-radius: 8px;
+    }
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
     /* Toggle Button */
     .theme-toggle {
       position: fixed;
@@ -74,6 +95,8 @@
     .cover-title p {
       font-style: italic;
       color: #c8a165;
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
     }
 
     /* Container */
@@ -226,35 +249,77 @@
       text-decoration: underline;
     }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #7a5c3f;
-      transition: color 0.3s;
-    }
+    /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #7a5c3f;
+    transition: color 0.3s;
+  }
 
-    /* === DARK MODE === */
+  /* Ukuran icon sosmed footer */
+  footer .social-link svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  footer .social-link:hover svg {
+    transform: scale(1.2);
+    color: #c88b5a;
+  }
+
+    /* 🌙 Dark Mode Styles */
     body.dark {
-      background: #1e1e1e;
-      color: #eaeaea;
+      background-color: #1e1e1e;
+      color: #e6e6e6;
     }
     body.dark .cover { background-color: #2a2a2a; }
     body.dark .cover-title h1 { color: #e6e6e6; }
     body.dark .cover-title p { color: #d4a373; }
-    body.dark .full-article {
+    body.dark article {
       background: rgba(40, 40, 40, 0.85);
       color: #e6e6e6;
     }
-    body.dark .back-link { background: #c88b5a; }
-    body.dark .disclaimer {
-      background: #2d2d2d;
-      color: #eaeaea;
+    body.dark article h2 { color: #f3c98b; }
+    body.dark .highlight-card {
+      background: #2a2a2a;
+      color: #e6e6e6;
     }
-    body.dark footer { color: #aaa; }
-    body.dark .theme-toggle {
-      background: #c88b5a;
-      color: #1e1e1e;
+    body.dark .highlight-card h3 { color: #f3c98b; }
+    body.dark .highlight-card p { color: #d4a373; }
+    body.dark footer { color: #d4a373; border-color: #333; }
+    body.dark .toggle-btn { background: #c8a165; color: #1e1e1e; }
+
+    /* Ukuran icon sosmed footer */
+    footer .social-link svg {
+      width: 20px;
+      height: 20px;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    footer .social-link:hover svg {
+      transform: scale(1.2);
+      color: #c88b5a;
+    }
+
+    /* Video Grid */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 10px;
+    }
+    .video-grid iframe,
+    .video-grid img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
   </style>
 </head>
@@ -277,42 +342,6 @@
   <!-- Artikel -->
   <main>
     <article class="full-article">
-      <a href="index.html" class="back-link">⬅ Kembali</a>
-
-      <!-- Pre-release Teaser Video -->
-      <section class="video-section">
-        <h2>🎬 Teaser Video</h2>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/VRSLrh8eXrg"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </section>
-
-      <!-- Pre-release MV -->
-      <section class="video-section">
-        <h2>🎶 Official Pre-release MV</h2>
-        <div class="video-wrapper">
-          <iframe src="https://www.youtube.com/embed/4PGX1ZYvzvo"
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-          </iframe>
-        </div>
-      </section>
-
-      <!-- Pre-release Video Performance -->
-      <section class="video-section">
-        <h2>🎶 Official Pre-release Video Performance</h2>
-<div class="video-placeholder">
-  <a href="https://www.youtube.com/watch?v=KO7DPkJM3xg" target="_blank">
-    <img src="https://img.youtube.com/vi/KO7DPkJM3xg/hqdefault.jpg" 
-         alt="Tonton di YouTube" style="border-radius:12px; max-width:100%;">
-  </a>
-</div>
-      </section>
 
       <!-- Deskripsi -->
       <section class="description">
@@ -334,6 +363,54 @@
       </section>
     </article>
   </main>
+
+<section class="video-section">
+  <h2>🎥 "Do What I Want" Teaser,MV & Performance Video</h2>
+  <div class="video-grid">
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/VRSLrh8eXrg"
+        title="Teaser"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/4PGX1ZYvzvo"
+        title="MV"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    <div class="video-placeholder">
+      <a href="https://www.youtube.com/watch?v=KO7DPkJM3xg" target="_blank">
+        <img src="https://img.youtube.com/vi/KO7DPkJM3xg/hqdefault.jpg" 
+             alt="Performance Video">
+      </a>
+    </div>
+  </div>
+</section>
+
+  <!-- Mini Stats -->
+  <div class="stats">
+    <div class="stat-item">👀 <span id="views">0</span></div>
+    <div class="stat-item">❤️ <span id="likes">0</span> 
+      <button onclick="addLike()">👍</button>
+    </div>
+  </div>
+
+  <!-- Komentar -->
+  <div id="komentar" style="max-width:600px; margin:30px auto;">
+    <h3 style="font-family:Arial, sans-serif; font-size:16px; margin-bottom:10px;">💬 Komentar</h3>
+    <script src="https://utteranc.es/client.js"
+            repo="bikyun26-beep/monbebe26-blog"
+            issue-term="pathname"
+            theme="github-light"
+            crossorigin="anonymous"
+            async>
+    </script>
+</div>
+
+      <a href="index.html" class="back-link">⬅ Kembali</a>
 
   <!-- Disclaimer -->
   <section class="disclaimer">
@@ -390,40 +467,32 @@
     &copy; 2025 Monbebe 21+ Blog - Untuk Monsta X Monbebe💕
   </footer>
 
-<style>
-  ...
-  footer {
-    text-align: center;
-    padding: 2rem;
-    font-size: 0.9rem;
-    color: #7a5c3f;
-    transition: color 0.3s;
-  }
-
-  /* Ukuran icon sosmed footer */
-  footer .social-link svg {
-    width: 20px;
-    height: 20px;
-    display: block;
-    transition: transform 0.3s ease;
-  }
-
-  footer .social-link:hover svg {
-    transform: scale(1.2);
-    color: #c88b5a;
-  }
-</style>
   <script>
-    const themeToggle = document.querySelector('.theme-toggle');
-    themeToggle.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      if(document.body.classList.contains('dark')){
-        themeToggle.textContent = "☀️";
-      } else {
-        themeToggle.textContent = "🌙";
-      }
-    });
-  </script>
+  const toggleBtn = document.querySelector(".theme-toggle");
 
+  // restore preferensi user
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark");
+    if (document.body.classList.contains("dark")) {
+      localStorage.setItem("theme", "dark");
+    } else {
+      localStorage.setItem("theme", "light");
+    }
+  });
+</script>
+
+<script>
+  let likes = 0;
+  function addLike() {
+    likes++;
+    document.getElementById("likes").textContent = likes;
+  }
+</script>
+
+<script src="darkmode.js"></script>
 </body>
 </html>
